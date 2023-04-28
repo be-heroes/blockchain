@@ -5,12 +5,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="NSwag.ApiDescription.Client" Version="13.13.2" />
   </ItemGroup>
   <ItemGroup>
     <OpenApiReference Include="terra-classic-lcd-openapi.yaml" Namespace="Terra.Net" ClassName="LCDClient">
       <Options>/OperationGenerationMode:SingleClientFromPathSegments</Options>
     </OpenApiReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeHeroes.TerraDotNet.Common\BeHeroes.TerraDotNet.Common.csproj" />
   </ItemGroup>
 </Project>
