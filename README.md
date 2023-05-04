@@ -1,0 +1,1 @@
+https://github.com/be-heroes/dojo/tree/master/handouts/blockchainification
