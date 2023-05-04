@@ -12,7 +12,7 @@ namespace BeHeroes.Blockchainification.Core.Cryptography.Algorithms
         public Secp256k1()
         {
             _keySize = 256;
-            _legalSizes = new KeySizes[]{ new KeySizes(256, 512, 256)};
+            _legalSizes = new KeySizes[]{ new KeySizes(256, 4096, 64)};
 
             Name = "secp256k1";
         }
