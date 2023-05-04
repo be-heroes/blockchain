@@ -8,11 +8,11 @@
     <PackageReference Include="NSwag.ApiDescription.Client" Version="13.13.2" />
   </ItemGroup>
   <ItemGroup>
-    <OpenApiReference Include="client.yaml" Namespace="BeHeroes.Blockchain.Infrastructure.Cosmos.TerraClassic" ClassName="Client">
+    <OpenApiReference Include="client.yaml" Namespace="BeHeroes.Blockchainification.Infrastructure.Cosmos.TerraClassic" ClassName="Client">
       <Options>/OperationGenerationMode:SingleClientFromPathSegments</Options>
     </OpenApiReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BeHeroes.Blockchain\BeHeroes.Blockchain.csproj" />
+    <ProjectReference Include="..\BeHeroes.Blockchainification\BeHeroes.Blockchainification.csproj" />
   </ItemGroup>
 </Project>
