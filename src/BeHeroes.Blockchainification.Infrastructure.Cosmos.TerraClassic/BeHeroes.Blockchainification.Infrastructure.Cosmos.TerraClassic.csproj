@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NSwag.ApiDescription.Client" Version="13.13.2" />
   </ItemGroup>
   <ItemGroup>
@@ -13,6 +14,6 @@
     </OpenApiReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BeHeroes.Blockchainification\BeHeroes.Blockchainification.csproj" />
+    <ProjectReference Include="..\BeHeroes.Blockchainification.Core\BeHeroes.Blockchainification.Core.csproj" />
   </ItemGroup>
 </Project>

@@ -1,12 +1,12 @@
 using BeHeroes.CodeOps.Abstractions.Cryptography;
 using BeHeroes.CodeOps.Abstractions.Cryptography.Algorithms;
-using BeHeroes.Blockchain.Cryptography.Algorithms;
+using BeHeroes.Blockchainification.Core.Cryptography.Algorithms;
 using Org.BouncyCastle.Asn1.X9;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
 
-namespace BeHeroes.Blockchainification.Cryptography
+namespace BeHeroes.Blockchainification.Core.Cryptography
 {
     public sealed class Secp256k1KeyPair : IKeyPair
     {
