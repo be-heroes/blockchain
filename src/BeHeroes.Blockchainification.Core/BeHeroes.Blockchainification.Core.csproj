@@ -6,6 +6,6 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BouncyCastle.Cryptography" Version="2.2.1" />
-    <PackageReference Include="BeHeroes.CodeOps.Abstractions" Version="1.0.0" />    
+    <PackageReference Include="BeHeroes.CodeOps.Abstractions" Version="1.0.0" />
   </ItemGroup>
 </Project>

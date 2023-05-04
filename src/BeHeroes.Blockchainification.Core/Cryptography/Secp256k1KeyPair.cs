@@ -10,21 +10,23 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
 {
     public sealed class Secp256k1KeyPair : IKeyPair
     {
-        public IAlgorithm Algorithm => new Secp256k1();
+        public IAlgorithm Algorithm => new Secp256k1Algorithm();
 
-        public Key Private { get; init; }
+        public IKey Private { get; init; }
 
-        public Key Public { get; init; }
+        public IKey Public { get; init; }
 
         public Secp256k1KeyPair()
-        {
-            var curve = ECNamedCurveTable.GetByName(Algorithm.Name);
-            var domainParams = new ECDomainParameters(curve.Curve, curve.G, curve.N, curve.H, curve.GetSeed());
+        {            
+            var curve = Algorithm.Curve as X9ECParameters;
 
+            if(curve == null)
+                throw new NullReferenceException();
+
+            var domainParams = new ECDomainParameters(curve.Curve, curve.G, curve.N, curve.H, curve.GetSeed());
             var secureRandom = new SecureRandom();
             var keyParams = new ECKeyGenerationParameters(domainParams, secureRandom);
-
-            var generator = new ECKeyPairGenerator("ECDSA");
+            var generator = new ECKeyPairGenerator(Algorithm.Identifier);
 
             generator.Init(keyParams);
             
@@ -53,7 +55,7 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
 
         sealed class Secp256k1PublicKey : Key
         {
-            public override int KeySize => 512;
+            public override int KeySize => 257;
 
             public Secp256k1PublicKey(byte[] rawData) : base(rawData, false)
             {
