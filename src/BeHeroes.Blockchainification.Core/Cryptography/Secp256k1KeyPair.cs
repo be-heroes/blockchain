@@ -11,9 +11,7 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
 {
     public sealed class Secp256k1KeyPair : IKeyPair
     {
-        private readonly Secp256k1Algorithm _algorithm = new Secp256k1Algorithm();
-
-        public IAlgorithm Algorithm => _algorithm;
+        public IAlgorithm Algorithm => new Secp256k1Algorithm();
 
         public IKey Private { get; init; }
 
@@ -21,7 +19,7 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
 
         public Secp256k1KeyPair()
         {            
-            var curve = (Secp256k1Curve)_algorithm.Curve;
+            var curve = (Secp256k1Curve)Algorithm.Curve;
             var parameters = (X9ECParameters)curve;
             var domainParams = new ECDomainParameters(parameters.Curve, parameters.G, parameters.N, parameters.H, parameters.GetSeed());
             var secureRandom = new SecureRandom();
@@ -34,32 +32,14 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
             var privateKeyParameter = (ECPrivateKeyParameters)keyPair.Private;
             var publicKeyParameter = (ECPublicKeyParameters)keyPair.Public;
 
-            Private = new Secp256k1PrivateKey(privateKeyParameter.D.ToByteArrayUnsigned());
-            Public = new Secp256k1PublicKey(publicKeyParameter.Q.GetEncoded());
+            Private = new Secp256k1Key(privateKeyParameter.D.ToByteArrayUnsigned());
+            Public = new Secp256k1Key(publicKeyParameter.Q.GetEncoded(), false);
         }
 
         public Secp256k1KeyPair(ECPrivateKeyParameters privateKeyParameter, ECPublicKeyParameters publicKeyParameter)
         {
-            Private = new Secp256k1PrivateKey(privateKeyParameter.D.ToByteArrayUnsigned());
-            Public = new Secp256k1PublicKey(publicKeyParameter.Q.GetEncoded());
-        }
-
-        sealed class Secp256k1PrivateKey : Key
-        {
-            public override int KeySize => 256;
-
-            public Secp256k1PrivateKey(byte[] rawData) : base(rawData, true)
-            {
-            }
-        }   
-
-        sealed class Secp256k1PublicKey : Key
-        {
-            public override int KeySize => 257;
-
-            public Secp256k1PublicKey(byte[] rawData) : base(rawData, false)
-            {
-            }
-        }  
+            Private = new Secp256k1Key(privateKeyParameter.D.ToByteArrayUnsigned());
+            Public = new Secp256k1Key(publicKeyParameter.Q.GetEncoded(), false);
+        } 
     }
 }
