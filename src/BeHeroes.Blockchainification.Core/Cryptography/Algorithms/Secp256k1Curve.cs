@@ -2,7 +2,7 @@ using Org.BouncyCastle.Asn1.X9;
 
 namespace BeHeroes.Blockchainification.Core.Cryptography.Algorithms
 {
-    public class Secp256k1Curve : Curve
+    public class Secp256k1Curve : ECCurve
     {
         public Secp256k1Curve() : base("secp256k1")
         {
