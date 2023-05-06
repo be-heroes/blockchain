@@ -7,22 +7,14 @@ using Org.BouncyCastle.Security;
 
 namespace BeHeroes.Blockchainification.Core.Cryptography
 {
-    public sealed class Secp256k1KeyPair : IKeyPair
+    public sealed class Secp256k1KeyPair : KeyPair
     {
-        public IAlgorithm Algorithm { get; init; }
-
-        public IKey Private { get; init; }
-
-        public IKey Public { get; init; }
-
         public Secp256k1KeyPair() : this(new Secp256k1Algorithm())
         {   
         }
 
-        public Secp256k1KeyPair(Secp256k1Algorithm algorithm)
-        {   
-            Algorithm = algorithm;
-
+        public Secp256k1KeyPair(Secp256k1Algorithm algorithm) : base(algorithm, Secp256k1Key.Empty, Secp256k1Key.Empty)
+        {
             var curve = Algorithm.Structure as Secp256k1Curve;
 
             if(curve == null)

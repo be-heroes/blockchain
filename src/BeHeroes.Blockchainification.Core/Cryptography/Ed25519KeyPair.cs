@@ -6,22 +6,15 @@ using Org.BouncyCastle.Security;
 
 namespace BeHeroes.Blockchainification.Core.Cryptography
 {
-    public sealed class Ed25519KeyPair : IKeyPair
+    public sealed class Ed25519KeyPair : KeyPair
     {
-        public IAlgorithm Algorithm { get; init; }
-
-        public IKey Private { get; init; }
-
-        public IKey Public { get; init; }
-
         public Ed25519KeyPair() : this(new Ed25519Algorithm())
         {        
+
         }
         
-        public Ed25519KeyPair(Ed25519Algorithm algorithm)
+        public Ed25519KeyPair(Ed25519Algorithm algorithm) : base(algorithm, Ed25519Key.Empty, Ed25519Key.Empty)
         {
-            Algorithm = algorithm;
-
             var curve = Algorithm.Structure as Curve25519;
 
             if(curve == null)
