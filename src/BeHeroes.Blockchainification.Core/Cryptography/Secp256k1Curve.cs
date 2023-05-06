@@ -1,6 +1,6 @@
 using Org.BouncyCastle.Asn1.X9;
 
-namespace BeHeroes.Blockchainification.Core.Cryptography.Algorithms
+namespace BeHeroes.Blockchainification.Core.Cryptography
 {
     public sealed class Secp256k1Curve : BeHeroes.CodeOps.Abstractions.Cryptography.Structure
     {

@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using BeHeroes.CodeOps.Abstractions.Cryptography;
 
-namespace BeHeroes.Blockchainification.Core.Cryptography.Algorithms
+namespace BeHeroes.Blockchainification.Core.Cryptography
 {
     public sealed class Ed25519Algorithm : Algorithm
     {
