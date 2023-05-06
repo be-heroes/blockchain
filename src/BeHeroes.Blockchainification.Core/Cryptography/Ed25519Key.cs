@@ -6,19 +6,10 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
     {
         public static readonly Ed25519Key Empty = new Ed25519Key(Array.Empty<byte>());
         
-        private readonly int _keySize;
-
-        public override int KeySize 
-        { 
-            get
-            {
-                return _keySize;
-            } 
-        }
+        public override int KeySize => 256;
 
         public Ed25519Key(byte[] rawData, bool isPrivate = true) : base(rawData, isPrivate)
         {
-            _keySize = 256;
         }
     }   
 }
