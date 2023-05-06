@@ -23,6 +23,8 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
             var seq = (Asn1Sequence)Asn1Object.FromByteArray(curve.GetSeed());
 			var curveParameters = new X9ECParameters(seq);
             var domainParams = new ECDomainParameters(curveParameters.Curve, curveParameters.G, curveParameters.N, curveParameters.H, curveParameters.GetSeed());
+            
+            //TODO: Determine if we should call setSeed on the secure random using the curve seed before passing the keygen params to the generator
             var keyParams = new ECKeyGenerationParameters(domainParams, new SecureRandom());
             var generator = new ECKeyPairGenerator(Algorithm.Identifier);
 
