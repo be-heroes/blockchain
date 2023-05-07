@@ -29,6 +29,7 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
             }
             else
             {
+                //TODO: Test that this actually works if we pass a preconfigured Secp256k1Curve to the algorith before generating a keypair
                 var seq = (Asn1Sequence)Asn1Object.FromByteArray(seed);
 			    curveParameters = new X9ECParameters(seq);
             }
