@@ -7,7 +7,7 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
     {
         public static string Name => "EdDSA";
 
-        public Ed25519Algorithm() : base(Name, 256, new KeySizes[]{ new KeySizes(256, 256, 0) }, null)
+        public Ed25519Algorithm(int keySize = 256) : base(Name, keySize, new KeySizes[]{ new KeySizes(256, 512, 256) }, null)
         {
         }
     }

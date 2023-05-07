@@ -12,7 +12,7 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
             
         }
 
-        public Secp256k1Algorithm(Secp256k1Curve curve) : base(Name, 256, new KeySizes[]{ new KeySizes(256, 257, 1) }, curve)
+        public Secp256k1Algorithm(Secp256k1Curve curve) : base(Name, 256, new KeySizes[]{ new KeySizes(256, 256, 0) }, curve)
         {
 
         }
