@@ -13,7 +13,7 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
 
         }
         
-        public Ed25519KeyPair(Ed25519Algorithm algorithm) : base(algorithm, Ed25519Key.Empty, Ed25519Key.Empty)
+        public Ed25519KeyPair(Ed25519Algorithm algorithm) : this(algorithm, Ed25519Key.Empty, Ed25519Key.Empty)
         {            
             var generator = new Ed25519KeyPairGenerator();
             var keyGenerationParams = new Ed25519KeyGenerationParameters(new SecureRandom());
@@ -26,6 +26,10 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
 
             Private = new Ed25519Key(privateKeyParameter.GetEncoded());
             Public = new Ed25519Key(publicKeyParameter.GetEncoded(), false);
+        }
+        
+        public Ed25519KeyPair(Ed25519Algorithm algorithm, Ed25519Key privateKey, Ed25519Key publicKey) : base(algorithm, privateKey, publicKey)
+        {
         }
     }
 }

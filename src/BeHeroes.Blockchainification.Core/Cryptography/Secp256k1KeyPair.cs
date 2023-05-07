@@ -13,7 +13,7 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
         {   
         }
 
-        public Secp256k1KeyPair(Secp256k1Algorithm algorithm) : base(algorithm, Secp256k1Key.Empty, Secp256k1Key.Empty)
+        public Secp256k1KeyPair(Secp256k1Algorithm algorithm) : this(algorithm, Secp256k1Key.Empty, Secp256k1Key.Empty)
         {
             var curve = Algorithm.Structure as Secp256k1Curve;
 
@@ -45,6 +45,10 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
 
             Private = new Secp256k1Key(privateKeyParameter.D.ToByteArrayUnsigned());
             Public = new Secp256k1Key(publicKeyParameter.Q.GetEncoded(), false);
+        }
+        
+        public Secp256k1KeyPair(Secp256k1Algorithm algorithm, Secp256k1Key privateKey, Secp256k1Key publicKey) : base(algorithm, privateKey, publicKey)
+        {
         }
     }
 }
