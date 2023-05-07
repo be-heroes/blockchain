@@ -1,4 +1,5 @@
 using BeHeroes.CodeOps.Abstractions.Cryptography;
+using BeHeroes.CodeOps.Abstractions.Strings;
 
 namespace BeHeroes.Blockchainification.Core.Cryptography
 {
@@ -10,6 +11,11 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
 
         public Ed25519Key(byte[] rawData, bool isPrivate = true) : base(rawData, isPrivate)
         {
+        }
+
+        public override string ToString()
+        {
+            return (!IsPrivate) ? (HexString)_rawData : base.ToString();
         }
     }   
 }

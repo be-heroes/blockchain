@@ -14,15 +14,8 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
         }
         
         public Ed25519KeyPair(Ed25519Algorithm algorithm) : base(algorithm, Ed25519Key.Empty, Ed25519Key.Empty)
-        {
-            var curve = Algorithm.Structure as Curve25519;
-
-            if(curve == null)
-                throw new CryptographyException($"Unsupported structure identified in algorithm {nameof(Ed25519Algorithm)}. Expected {nameof(Curve25519)}");
-            
+        {            
             var generator = new Ed25519KeyPairGenerator();
-
-            //TODO: Determine if we should call setSeed on the secure random using the curve seed before passing the keygen params to the generator
             var keyGenerationParams = new Ed25519KeyGenerationParameters(new SecureRandom());
             
             generator.Init(keyGenerationParams);

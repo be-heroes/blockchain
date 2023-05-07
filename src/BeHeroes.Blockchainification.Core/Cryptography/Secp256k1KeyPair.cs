@@ -20,11 +20,20 @@ namespace BeHeroes.Blockchainification.Core.Cryptography
             if(curve == null)
                 throw new CryptographyException($"Unsupported structure identified in algorithm {nameof(Secp256k1Algorithm)}. Expected {nameof(Secp256k1Curve)}");
 
-            var seq = (Asn1Sequence)Asn1Object.FromByteArray(curve.GetSeed());
-			var curveParameters = new X9ECParameters(seq);
-            var domainParams = new ECDomainParameters(curveParameters.Curve, curveParameters.G, curveParameters.N, curveParameters.H, curveParameters.GetSeed());
-            
-            //TODO: Determine if we should call setSeed on the secure random using the curve seed before passing the keygen params to the generator
+            var seed = curve.GetSeed();
+            X9ECParameters curveParameters;
+
+            if(seed.Length == 0)
+            {
+                curveParameters = ECNamedCurveTable.GetByName(curve.Identifier);
+            }
+            else
+            {
+                var seq = (Asn1Sequence)Asn1Object.FromByteArray(seed);
+			    curveParameters = new X9ECParameters(seq);
+            }
+
+            var domainParams = new ECDomainParameters(curveParameters.Curve, curveParameters.G, curveParameters.N, curveParameters.H, curveParameters.GetSeed());            
             var keyParams = new ECKeyGenerationParameters(domainParams, new SecureRandom());
             var generator = new ECKeyPairGenerator(Algorithm.Identifier);
 
