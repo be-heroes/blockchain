@@ -1,5 +1,7 @@
 ﻿using System.Text;
 using BeHeroes.Blockchain.Core.Cryptography;
+using BeHeroes.Blockchain.Core.Cryptography.Ed25519;
+using BeHeroes.Blockchain.Core.Cryptography.Secp256k1;
 using BeHeroes.CodeOps.Abstractions.Strings;
 
 var keyPair1 = new Ed25519KeyPair();
