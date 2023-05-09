@@ -1,7 +1,7 @@
 using BeHeroes.CodeOps.Abstractions.Cryptography;
 using BeHeroes.CodeOps.Abstractions.Strings;
 
-namespace BeHeroes.Blockchain.Core.Cryptography
+namespace BeHeroes.Blockchain.Core.Cryptography.Secp256k1
 {
     public sealed class Secp256k1Key : Key
     {        

@@ -5,7 +5,7 @@ using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
 
-namespace BeHeroes.Blockchain.Core.Cryptography
+namespace BeHeroes.Blockchain.Core.Cryptography.Secp256k1
 {
     public sealed class Secp256k1KeyPair : KeyPair
     {

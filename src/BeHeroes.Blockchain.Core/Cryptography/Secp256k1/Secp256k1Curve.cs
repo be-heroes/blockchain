@@ -1,4 +1,4 @@
-namespace BeHeroes.Blockchain.Core.Cryptography
+namespace BeHeroes.Blockchain.Core.Cryptography.Secp256k1
 {
     public sealed class Secp256k1Curve : BeHeroes.CodeOps.Abstractions.Cryptography.Structure
     {

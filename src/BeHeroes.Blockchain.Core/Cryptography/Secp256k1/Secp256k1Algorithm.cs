@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using BeHeroes.CodeOps.Abstractions.Cryptography;
 
-namespace BeHeroes.Blockchain.Core.Cryptography
+namespace BeHeroes.Blockchain.Core.Cryptography.Secp256k1
 {
     public sealed class Secp256k1Algorithm : Algorithm
     {

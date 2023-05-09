@@ -2,7 +2,7 @@ using BeHeroes.CodeOps.Abstractions.Cryptography;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Crypto.Signers;
 
-namespace BeHeroes.Blockchain.Core.Cryptography
+namespace BeHeroes.Blockchain.Core.Cryptography.Ed25519
 {
     public sealed class Ed25519SignatureProvider : SignatureProvider
     {
