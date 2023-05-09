@@ -1,7 +1,7 @@
 namespace BeHeroes.Blockchain.Core.ABI
 {
     //TODO: Finish this interface
-    public interface IObject
+    public interface IABIObject
     {
         string Name { get; }
 
@@ -9,7 +9,7 @@ namespace BeHeroes.Blockchain.Core.ABI
 
         byte[] RawData { get; }
 
-        KnownType ABIType { get; }
+        ABIType ABIType { get; }
 
         int FixedSize { get; }
     }
