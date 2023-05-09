@@ -1,4 +1,4 @@
-namespace BeHeroes.Blockchain.Domain.Trading.Exchange
+namespace BeHeroes.Blockchain.Domain.Trading.Exchanges
 {
     public interface IExchange
     {
