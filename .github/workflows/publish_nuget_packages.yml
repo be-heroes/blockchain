@@ -38,15 +38,3 @@ jobs:
       run: dotnet pack --configuration Release src/BeHeroes.Blockchain.Core
     - name: Push.BeHeroes.Blockchain.Core
       run: dotnet nuget push src/BeHeroes.Blockchain.Core/**/*.nupkg --no-symbols --skip-duplicate --source "github"
-    - name: Pack.BeHeroes.Blockchain.Domain.Trading
-      env:
-        BUILD_VERSION: ${{ steps.semver.outputs.semver }}
-      run: dotnet pack --configuration Release src/BeHeroes.Blockchain.Domain.Trading
-    - name: Push.BeHeroes.Blockchain.Domain.Trading
-      run: dotnet nuget push src/BeHeroes.Blockchain.Domain.Trading/**/*.nupkg --no-symbols --skip-duplicate --source "github"
-    - name: Pack.BeHeroes.Blockchain.Infrastructure.Cosmos.TerraClassic
-      env:
-        BUILD_VERSION: ${{ steps.semver.outputs.semver }}
-      run: dotnet pack --configuration Release src/BeHeroes.Blockchain.Infrastructure.Cosmos.TerraClassic
-    - name: Push.BeHeroes.Blockchain.Infrastructure.Cosmos.TerraClassic
-      run: dotnet nuget push src/BeHeroes.Blockchain.Infrastructure.Cosmos.TerraClassic/**/*.nupkg --no-symbols --skip-duplicate --source "github"
