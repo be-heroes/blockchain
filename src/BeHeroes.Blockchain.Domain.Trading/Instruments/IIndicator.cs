@@ -1,4 +1,4 @@
-﻿namespace BeHeroes.Blockchain.Domain.Trading.Instrument
+﻿namespace BeHeroes.Blockchain.Domain.Trading.Instruments
 {
     public interface IIndicator
     {
