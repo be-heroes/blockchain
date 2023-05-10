@@ -1,6 +1,6 @@
 ﻿//TODO: Reimplement with new native Json classes and ITypeConverter interfaces
 // using AutoMapper;
-// using BeHeroes.Infrastructure.Exchanges.Kraken.Rpc.Response;
+// using BeHeroes.Infrastructure.Exchanges.Kraken.Http.Response;
 // using System.Text.Json.Serialization;
 
 // namespace BeHeroes.Infrastructure.Exchanges.Kraken.Mapping.Maps

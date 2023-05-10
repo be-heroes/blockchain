@@ -22,12 +22,12 @@
 
 //         public async Task<IJsonRpcResponse> Process(IJsonRpcRequest request)
 //         {
-//             return await _rpcClient.RawRequest((KrakenRpcRequest) request);
+//             return await _rpcClient.RawRequest((KrakenRequest) request);
 //         }
 
 //         public async Task<MarketVolume24Hour> Get24HVolume()
 //         {
-//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRpcRequestMarkets()));
+//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRequestMarkets()));
 //             var validationResult = response.Validate(new ValidationContext(this)).ToList();
 //             validationResult.ThrowExceptionIfAnyValidationErrors();
 //             var output = KrakenMapper.Mapper.Map<KrakenRpcResponse, MarketVolume24Hour>(response);
@@ -41,7 +41,7 @@
 
 //         public async Task<List<Market>> GetMarkets()
 //         {
-//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRpcRequestAssetPairs()));
+//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRequestAssetPairs()));
 //             var validationResult = response.Validate(new ValidationContext(this)).ToList();
 //             validationResult.ThrowExceptionIfAnyValidationErrors();
 //             var output = KrakenMapper.Mapper.Map<KrakenRpcResponse, List<Market>>(response);
@@ -50,7 +50,7 @@
 
 //         public async Task<List<Currency>> GetCurrencies()
 //         {
-//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRpcRequestAssets()));
+//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRequestAssets()));
 //             var validationResult = response.Validate(new ValidationContext(this)).ToList();
 //             validationResult.ThrowExceptionIfAnyValidationErrors();
 //             var output = KrakenMapper.Mapper.Map<KrakenRpcResponse, List<Currency>>(response);
@@ -59,7 +59,7 @@
 
 //         public async Task<List<Order>> GetOpenOrders(Market market)
 //         {
-//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRpcRequestOrderBook(market, 50)));
+//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRequestOrderBook(market, 50)));
 //             var validationResult = response.Validate(new ValidationContext(this)).ToList();
 //             validationResult.ThrowExceptionIfAnyValidationErrors();
 //             var output = KrakenMapper.Mapper.Map<KrakenRpcResponse, List<Order>>(response);
@@ -73,7 +73,7 @@
 
 //         public async Task<List<Balance>> GetAllBalances()
 //         {
-//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRpcRequestBalance()));
+//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRequestBalance()));
 //             var validationResult = response.Validate(new ValidationContext(this)).ToList();
 //             validationResult.ThrowExceptionIfAnyValidationErrors();
 //             var output = KrakenMapper.Mapper.Map<KrakenRpcResponse, List<Balance>>(response);
@@ -99,7 +99,7 @@
 //         {
 //             // Kraken does not support retrieveing trades i a range.
 //             // All trades should be retrieved, and the returned to the caller
-//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRpcRequestRecentTrades(market)));
+//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRequestRecentTrades(market)));
 //             var validationResult = response.Validate(new ValidationContext(this)).ToList();
 //             validationResult.ThrowExceptionIfAnyValidationErrors();
 //             var output = KrakenMapper.Mapper.Map<KrakenRpcResponse, List<Trade>>(response);
@@ -113,7 +113,7 @@
 
 //         public async Task<List<Trade>> GetAccountTradeHistory(Market market, DateTime start, DateTime end)
 //         {
-//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRpcRequestAccountTradesHistory(market.QuoteCurrency)));
+//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRequestAccountTradesHistory(market.QuoteCurrency)));
 //             var validationResult = response.Validate(new ValidationContext(this)).ToList();
 //             validationResult.ThrowExceptionIfAnyValidationErrors();
 //             var output = KrakenMapper.Mapper.Map<KrakenRpcResponse, List<Trade>>(response);
@@ -122,7 +122,7 @@
 
 //         public async Task<Order> Sell(Market market, double rate, double amount, bool fillOrKill, bool immediateOrCancel)
 //         {
-//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRpcRequestAddOrder(market, "sell" , rate, amount )));
+//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRequestAddOrder(market, "sell" , rate, amount )));
 //             var validationResult = response.Validate(new ValidationContext(this)).ToList();
 //             validationResult.ThrowExceptionIfAnyValidationErrors();
 //             var output = KrakenMapper.Mapper.Map<KrakenRpcResponse, Order>(response);
@@ -131,7 +131,7 @@
 
 //         public async Task<Order> Buy(Market market, double rate, double amount, bool fillOrKill, bool immediateOrCancel)
 //         {
-//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRpcRequestAddOrder(market, "buy", rate, amount)));
+//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRequestAddOrder(market, "buy", rate, amount)));
 //             var validationResult = response.Validate(new ValidationContext(this)).ToList();
 //             validationResult.ThrowExceptionIfAnyValidationErrors();
 //             var output = KrakenMapper.Mapper.Map<KrakenRpcResponse, Order>(response);
@@ -140,7 +140,7 @@
 
 //         public async Task<List<Order>> GetAccountOpenOrders()
 //         {
-//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRpcRequestOpenOrders()));
+//             var response = KrakenMapper.Mapper.Map<IJsonRpcResponse, KrakenRpcResponse>(await Process(new KrakenRequestOpenOrders()));
 //             var validationResult = response.Validate(new ValidationContext(this)).ToList();
 //             validationResult.ThrowExceptionIfAnyValidationErrors();
 //             var output = KrakenMapper.Mapper.Map<KrakenRpcResponse, List<Order>>(response);

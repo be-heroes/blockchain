@@ -3,7 +3,7 @@
 // using System.Collections.Generic;
 // using AutoMapper;
 // using BeHeroes.Blockchain.Domain.Trading.Model;
-// using BeHeroes.Infrastructure.Exchanges.Kraken.Rpc.Response;
+// using BeHeroes.Infrastructure.Exchanges.Kraken.Http.Response;
 // using System.Text.Json;
 
 // namespace BeHeroes.Infrastructure.Exchanges.Kraken.Mapping.Maps
