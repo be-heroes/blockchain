@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>      
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PackageId>BeHeroes.Blockchain.Infrastructure.Cosmos.DoxChain</PackageId>      
+    <Version Condition="'$(BUILD_VERSION)' == ''">1.0.0</Version>
+    <Version Condition="'$(BUILD_VERSION)' != ''">$(BUILD_VERSION)</Version>
+    <Authors>ZaradarBH</Authors>
+    <Company>Be-Heroes</Company>
+    <PackageDescription>PACKAGE_DESCRIPTION</PackageDescription>
+    <RepositoryUrl>https://github.com/be-heroes/blockchain</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.13.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <OpenApiReference Include="client.yaml" Namespace="BeHeroes.Blockchain.Infrastructure.Cosmos.DoxChain" ClassName="Client">
+      <Options>/OperationGenerationMode:SingleClientFromPathSegments</Options>
+    </OpenApiReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeHeroes.Blockchain.Core\BeHeroes.Blockchain.Core.csproj" />
+  </ItemGroup>
+</Project>
