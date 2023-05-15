@@ -1,4 +1,4 @@
-using BeHeroes.Blockchain.Domain.Trading.Model;
+using BeHeroes.Blockchain.Domain.Trading.ValueObjects;
 
 namespace BeHeroes.Infrastructure.Exchanges.Kraken.Http.Request.Private.Funding
 {

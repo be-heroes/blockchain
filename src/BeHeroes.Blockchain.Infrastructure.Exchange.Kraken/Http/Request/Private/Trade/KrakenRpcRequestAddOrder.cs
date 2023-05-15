@@ -1,10 +1,10 @@
-using BeHeroes.Blockchain.Domain.Trading.Model;
+using BeHeroes.Blockchain.Domain.Trading.Aggregates;
 
 namespace BeHeroes.Infrastructure.Exchanges.Kraken.Http.Request.Private.Trade
 {
     public sealed class KrakenRequestAddOrder : KrakenRequest
     {
-        public KrakenRequestAddOrder(Market market, string type, double price, double volume)
+        public KrakenRequestAddOrder(MarketRoot market, string type, double price, double volume)
         {
             // TODO Add Parameters
             var postData = new List<KeyValuePair<string, string>>

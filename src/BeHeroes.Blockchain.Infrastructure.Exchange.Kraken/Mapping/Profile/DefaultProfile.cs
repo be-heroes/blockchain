@@ -1,6 +1,6 @@
 ﻿//TODO: Reimplement once I decided once to do with the legacy IJsonRpc* interfaces
 // using AutoMapper;
-// using BeHeroes.Blockchain.Domain.Trading.Model;
+// using BeHeroes.Blockchain.Domain.Trading.ValueObjects;
 // using BeHeroes.Infrastructure.Exchanges.Kraken.Mapping.Maps;
 // using BeHeroes.Infrastructure.Exchanges.Kraken.Http.Response;
 

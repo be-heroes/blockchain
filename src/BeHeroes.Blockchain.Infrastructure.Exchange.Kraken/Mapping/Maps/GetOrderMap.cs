@@ -2,7 +2,7 @@
 // using System.Collections.Generic;
 // using System.Linq;
 // using AutoMapper;
-// using BeHeroes.Blockchain.Domain.Trading.Model;
+// using BeHeroes.Blockchain.Domain.Trading.ValueObjects;
 // using BeHeroes.Infrastructure.Exchanges.Kraken.Http.Response;
 // using Newtonsoft.Json.Linq;
 

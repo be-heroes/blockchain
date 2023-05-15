@@ -1,14 +1,14 @@
-using BeHeroes.Blockchain.Domain.Trading.Model;
+using BeHeroes.Blockchain.Domain.Trading.Aggregates;
 
 namespace BeHeroes.Infrastructure.Exchanges.Kraken.Http.Request.Public
 {
     public sealed class KrakenRequestRecentTrades : KrakenRequest
     {
-        public KrakenRequestRecentTrades(Market market, long since)
+        public KrakenRequestRecentTrades(MarketRoot market, long since)
         {
             var postData = new List<KeyValuePair<string, string>>
             {
-                new KeyValuePair<string, string>("pair", market.BaseCurrency.Name+market.QuoteCurrency.Name),
+                new KeyValuePair<string, string>("pair", market.BaseCurrency?.Name+market.QuoteCurrency?.Name),
                 new KeyValuePair<string, string>("nonce", TimeStamp.Ticks.ToString()),
                 new KeyValuePair<string, string>("since", since.ToString())
             };
@@ -18,11 +18,11 @@ namespace BeHeroes.Infrastructure.Exchanges.Kraken.Http.Request.Public
             Content = new FormUrlEncodedContent(postData);
         }
 
-        public KrakenRequestRecentTrades(Market market)
+        public KrakenRequestRecentTrades(MarketRoot market)
         {
             var postData = new List<KeyValuePair<string, string>>
             {
-                new KeyValuePair<string, string>("pair", market.BaseCurrency.Name+market.QuoteCurrency.Name),
+                new KeyValuePair<string, string>("pair", market.BaseCurrency?.Name+market.QuoteCurrency?.Name),
                 new KeyValuePair<string, string>("nonce", TimeStamp.Ticks.ToString())
             };
 

@@ -1,15 +1,15 @@
-using BeHeroes.Blockchain.Domain.Trading.Model;
+using BeHeroes.Blockchain.Domain.Trading.Aggregates;
 
 namespace BeHeroes.Infrastructure.Exchanges.Kraken.Http.Request.Public
 {
     public sealed class KrakenRequestOrderBook : KrakenRequest
     {
-        public KrakenRequestOrderBook(List<Market> markets, int count)
+        public KrakenRequestOrderBook(List<MarketRoot> markets, int count)
         {
             string pair = "";
             foreach (var market in markets)
             {
-                pair += market.BaseCurrency.Name + market.QuoteCurrency.Name + ",";
+                pair += market.BaseCurrency?.Name + market.QuoteCurrency?.Name + ",";
             }
             pair = pair.Remove(pair.Length - 1);
             var postData = new List<KeyValuePair<string, string>>
@@ -28,9 +28,9 @@ namespace BeHeroes.Infrastructure.Exchanges.Kraken.Http.Request.Public
             Method = HttpMethod.Post;
             Content = new FormUrlEncodedContent(postData);
         }
-        public KrakenRequestOrderBook(Market market, int count)
+        public KrakenRequestOrderBook(MarketRoot market, int count)
         {
-            string pair = market.BaseCurrency.Name + market.QuoteCurrency.Name;
+            string pair = market.BaseCurrency?.Name + market.QuoteCurrency?.Name;
             var postData = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("pair", pair),

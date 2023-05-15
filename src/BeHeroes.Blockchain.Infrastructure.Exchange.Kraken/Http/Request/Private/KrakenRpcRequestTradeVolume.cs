@@ -1,15 +1,15 @@
-using BeHeroes.Blockchain.Domain.Trading.Model;
+using BeHeroes.Blockchain.Domain.Trading.Aggregates;
 
 namespace BeHeroes.Infrastructure.Exchanges.Kraken.Http.Request.Private
 {
     public sealed class KrakenRequestTradeVolume : KrakenRequest
     {
-        public KrakenRequestTradeVolume(List<Market> markets, bool feeInfo)
+        public KrakenRequestTradeVolume(List<MarketRoot> markets, bool feeInfo)
         {
             string pair = "";
             foreach (var market in markets)
             {
-                pair += market.BaseCurrency.Name + market.QuoteCurrency.Name + ",";
+                pair += market.BaseCurrency?.Name + market.QuoteCurrency?.Name + ",";
             }
             pair = pair.Remove(pair.Length - 1);
             var postData = new List<KeyValuePair<string, string>>

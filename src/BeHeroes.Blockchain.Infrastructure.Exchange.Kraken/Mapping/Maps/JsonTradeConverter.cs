@@ -1,7 +1,7 @@
 ﻿//TODO: Reimplement with new native Json classes and ITypeConverter interfaces
 // using System;
 // using BeHeroes.Core.Common;
-// using BeHeroes.Blockchain.Domain.Trading.Model;
+// using BeHeroes.Blockchain.Domain.Trading.ValueObjects;
 // using Newtonsoft.Json.Linq;
 
 // namespace BeHeroes.Infrastructure.Exchanges.Kraken.Mapping.Maps
