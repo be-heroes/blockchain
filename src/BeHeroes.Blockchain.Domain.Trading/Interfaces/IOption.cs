@@ -1,4 +1,4 @@
-﻿namespace BeHeroes.Blockchain.Domain.Trading.Instruments.Derivatives.Options
+﻿namespace BeHeroes.Blockchain.Domain.Trading.Interfaces
 {
     public interface IOptions : IDerivative
     {
