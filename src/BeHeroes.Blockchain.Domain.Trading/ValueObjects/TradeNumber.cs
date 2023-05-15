@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using BeHeroes.Blockchain.Domain.Trading.Instruments.Derivatives.Commodities;
+using BeHeroes.Blockchain.Domain.Trading.Interfaces;
 using BeHeroes.CodeOps.Abstractions.Entities;
 
 namespace BeHeroes.Blockchain.Domain.Trading.ValueObjects
